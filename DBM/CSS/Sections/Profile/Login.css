@@ -1,0 +1,60 @@
+﻿.titleClass
+{
+    font-weight: bold;
+    background-color: #8800AA;
+    color: #FFFFFF;
+}
+
+.disableTitleClass
+{
+    color: #CCCCCC;
+    background-color: #CCCCCC;
+    font-size: 0px;
+    height: 0%;
+}
+
+.labelClass
+{
+    text-align: left;
+}
+
+.textBoxClass
+{
+    width: 200px;
+}
+
+.linkClass
+{
+    text-align: left;
+}
+
+.checkboxClass
+{
+    text-align: center;
+}
+
+.errorTextClass
+{
+    color: #FF0000;
+}
+
+.infoTextClass
+{
+    color: #008000;
+}
+
+.validatorClass
+{
+    color: #FF0000;
+}
+
+.fillerLoginClass
+{
+    width: 100%;
+    height: 100px;
+}
+
+.instructionClass
+{
+    font-weight: bold;
+}

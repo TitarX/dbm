@@ -1,0 +1,149 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Main.master.cs" Inherits="Masters_Main" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta name="autor" content="Dmitriy Ignatenko" />
+    <link rel="icon" type="image/x-icon" href="/Images/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="/Images/favicon.ico" />
+    <link href="/CSS/jQuery/UI/jquery-ui-1.8.17.custom.css" rel="Stylesheet" type="text/css" />
+    <script type="text/javascript" src="/JS/jQuery/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/JS/Masters/Main/panels.js"></script>
+    <script type="text/javascript" src="/JS/Masters/Main/main.js"></script>
+    <asp:ContentPlaceHolder ID="HeadContentPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server" id="wrapper">
+    <div id="top-lable">
+        <div id="menu-show">
+            <img id="menu-show-image" title="Открыть" src="/Images/menu/down.png" alt="&darr;" />
+            <img id="menu-image" title="Меню" src="/Images/menu/menu.png" alt="Меню" />
+        </div>
+    </div>
+    <div id="bottom-lable">
+        <div id="panel-show">
+            <img id="panel-show-image" title="Открыть" src="/Images/menu/up.png" alt="&uarr;" />
+        </div>
+    </div>
+    <div id="top">
+        <div class="panel-content">
+            <ul class="empties-list">
+                <li></li>
+            </ul>
+            <ul class="menu-list">
+                <li class="header-menu-list">Профиль</li>
+                <asp:LoginView ID="profileLoginView" runat="server">
+                    <RoleGroups>
+                        <asp:RoleGroup Roles="User">
+                            <ContentTemplate>
+                                <li class="item"><a href="/Sections/Profile/My/Profile.aspx">Мой профиль</a></li>
+                            </ContentTemplate>
+                        </asp:RoleGroup>
+                    </RoleGroups>
+                </asp:LoginView>
+                <asp:LoginView ID="adminsLoginView" runat="server">
+                    <RoleGroups>
+                        <asp:RoleGroup Roles="Root">
+                            <ContentTemplate>
+                                <li class="item"><a href="/Sections/Profile/Root/Admins.aspx">Администраторы и пользователи</a></li>
+                            </ContentTemplate>
+                        </asp:RoleGroup>
+                    </RoleGroups>
+                </asp:LoginView>
+                <asp:LoginView ID="usersLoginView" runat="server">
+                    <RoleGroups>
+                        <asp:RoleGroup Roles="Admin">
+                            <ContentTemplate>
+                                <li class="item"><a href="/Sections/Profile/Admin/Users.aspx">Пользователи</a></li>
+                            </ContentTemplate>
+                        </asp:RoleGroup>
+                    </RoleGroups>
+                </asp:LoginView>
+                <li class="item">
+                    <asp:LoginStatus ID="LoginStatus" runat="server" LoginText="Вход" LogoutText="Выход"
+                        OnLoggedOut="loginStatus_LoggedOut" />
+                </li>
+            </ul>
+            <ul class="menu-list">
+                <li class="header-menu-list">Менеджер</li>
+                <% 
+                    if (Session["Connection"] == null)
+                    {
+                        Response.Write("<li class='item'><a href='/Sections/Manager/Connections/Create.aspx'>Подключение</a></li>");
+                    }
+                    else
+                    {
+                        Response.Write("<li class='item'><a href='/Sections/Manager/Connections/Drop.aspx'>Отключение</a></li>");
+                        Response.Write("<li class='item'><a href='/Sections/Manager/Queries/Create.aspx'>Запрос</a></li>");
+                        Response.Write("<li class='item'><a href='/Sections/Manager/DB/Tables/Tables.aspx'>База данных</a></li>");
+                    }
+                %>
+            </ul>
+            <ul class="menu-list">
+                <li class="header-menu-list">Контакты</li>
+                <asp:LoginView ID="contactsLoginView" runat="server">
+                    <RoleGroups>
+                        <asp:RoleGroup Roles="User">
+                            <ContentTemplate>
+                                <li class="item"><a href="/Sections/Contacts/SendEmail.aspx">Отправка email</a></li>
+                            </ContentTemplate>
+                        </asp:RoleGroup>
+                    </RoleGroups>
+                </asp:LoginView>
+                <li class="item"><a href="/Sections/Contacts/Feedback.aspx">Обратная связь</a></li>
+            </ul>
+        </div>
+    </div>
+    <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+    <div id="bottom">
+        <div class="panel-content">
+            <!--WWW-->
+            <a href="http://www.webcentrum.ru/" target="_blank">
+                <img class="content" src="/Images/panel/allservices.gif" alt="Все сервисы" title="Все сервисы"
+                    border="0" /></a>
+            <!--/WWW-->
+            <!-- begin of Top100 code -->
+            <script id="top100Counter" type="text/javascript" src="http://counter.rambler.ru/top100.jcn?2798413"></script>
+            <noscript>
+                <a href="http://top100.rambler.ru/navi/2798413/">
+                    <img src="http://counter.rambler.ru/top100.cnt?2798413" alt="Rambler's Top100" border="0" />
+                </a>
+            </noscript>
+            <!-- end of Top100 code -->
+            <!-- HotLog -->
+            <script type="text/javascript" language="javascript">
+                hotlog_js = "1.0"; hotlog_r = "" + Math.random() + "&s=2260538&im=501&r=" +
+                    escape(document.referrer) + "&pg=" + escape(window.location.href);
+            </script>
+            <script type="text/javascript" language="javascript1.1">
+                hotlog_js = "1.1"; hotlog_r += "&j=" + (navigator.javaEnabled() ? "Y" : "N");
+            </script>
+            <script type="text/javascript" language="javascript1.2">
+                hotlog_js = "1.2"; hotlog_r += "&wh=" + screen.width + "x" + screen.height + "&px=" +
+                    (((navigator.appName.substring(0, 3) == "Mic")) ? screen.colorDepth : screen.pixelDepth);
+            </script>
+            <script type="text/javascript" language="javascript1.3">
+                hotlog_js = "1.3";
+            </script>
+            <script type="text/javascript" language="javascript">
+                hotlog_r += "&js=" + hotlog_js;
+                document.write('<a href="http://click.hotlog.ru/?2260538" target="_blank"><img ' +
+                    'src="http://hit41.hotlog.ru/cgi-bin/hotlog/count?' +
+                    hotlog_r + '" border="0" width="88" height="31" title="HotLog: показано количество посетителей за сегодня, за вчера и всего" alt="HotLog"><\/a>');
+            </script>
+            <noscript>
+                <a href="http://click.hotlog.ru/?2260538" target="_blank">
+                    <img src="http://hit41.hotlog.ru/cgi-bin/hotlog/count?s=2260538&im=501" border="0"
+                        width="88" height="31" title="HotLog: показано количество посетителей за сегодня, за вчера и всего"
+                        alt="HotLog"></a>
+            </noscript>
+            <!-- /HotLog -->
+        </div>
+    </div>
+    </form>
+</body>
+</html>

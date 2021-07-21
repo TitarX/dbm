@@ -1,0 +1,137 @@
+﻿.rowQueriesTable
+{
+    cursor: pointer;
+}
+
+/*Модальное окно*/
+#basic-modal-content
+{
+    display: none;
+}
+
+#simplemodal-overlay
+{
+    background-color: #000;
+    cursor: wait;
+}
+
+#simplemodal-container
+{
+    height: 400px;
+    width: 680px;
+    color: #000;
+    background-color: #fff;
+    border: 4px solid #444;
+    padding: 12px;
+}
+#simplemodal-container .simplemodal-data
+{
+    padding: 8px;
+}
+#simplemodal-container code
+{
+    background: #141414;
+    border-left: 3px solid #65B43D;
+    color: #bbb;
+    display: block;
+    font-size: 12px;
+    margin-bottom: 12px;
+    padding: 4px 6px 6px;
+}
+#simplemodal-container a
+{
+    color: #ddd;
+}
+#simplemodal-container a.modalCloseImg
+{
+    background: url(/Images/jquery/simplemodal/x.png) no-repeat;
+    width: 25px;
+    height: 29px;
+    display: inline;
+    z-index: 3200;
+    position: absolute;
+    top: -15px;
+    right: -16px;
+    cursor: pointer;
+}
+#simplemodal-container h3
+{
+    color: #84b8d9;
+}
+/*Модальное окно*/
+
+/*Confirm окно*/
+#confirm
+{
+    display: none;
+}
+
+#confirm-overlay
+{
+    background-color: #000;
+    cursor: wait;
+}
+
+#confirm-container
+{
+    height: 140px;
+    width: 420px;
+    font: 16px/22px 'Trebuchet MS' , Verdana, Arial;
+    text-align: left;
+    background: #fff;
+    border: 4px solid #444;
+}
+#confirm-container .header
+{
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    background: url(/Images/jquery/simplemodal/header.gif) repeat-x;
+    color: #fff;
+    font-weight: bold;
+}
+#confirm-container .header span
+{
+    padding-left: 8px;
+}
+#confirm-container .message
+{
+    color: #333;
+    font-size: 14px;
+    margin: 0;
+    padding: 12px 4px 12px 8px;
+}
+#confirm-container .buttons
+{
+    line-height: 26px;
+    width: 160px;
+    float: right;
+    padding: 10px 8px 0;
+}
+#confirm-container .buttons div
+{
+    float: right;
+    margin-left: 4px;
+    width: 70px;
+    height: 26px;
+    color: #888;
+    font-weight: bold;
+    text-align: center;
+    background: url(/Images/jquery/simplemodal/button.gif) repeat-x;
+    border: 1px solid #bbb;
+    cursor: pointer;
+}
+#confirm-container a.modal-close, #confirm-container a.modal-close:link, #confirm-container a.modal-close:active, #confirm-container a.modal-close:visited
+{
+    text-decoration: none;
+    font-weight: bold;
+    position: absolute;
+    right: 10px;
+    top: 2px;
+    color: #fff;
+}
+#confirm-container a.modal-close:hover
+{
+    color: #ccc;
+}
+/*Confirm окно*/

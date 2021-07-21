@@ -1,0 +1,22 @@
+﻿td
+{
+    text-align: left;
+}
+
+.toRight
+{
+    text-align: right;
+}
+
+#contactsHeader
+{
+    font-weight: bold;
+    background-color: #8800AA;
+    color: #FFFFFF;
+}
+
+#contactsWrapper
+{
+    border: 1px double #000000;
+    background-color: #CCCCCC;
+}
